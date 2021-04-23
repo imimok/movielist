@@ -27,23 +27,10 @@ jobs:
       - uses: borales/actions-yarn@v2.0.0
         with:
           cmd: build # will run `yarn build` command
-      - run: |
-          cd dist/pwa
-          git init
-          # type configurations: your user.email and user.name followed lines 
-          # git config --global user.email your_email 
-          # git config --global user.name your_name 
-          git config --global user.email 01alfa.cool@gmail.com
-          git config --global user.name alfacool
-          git status
-          # change this remote url for examle your remote url is https://github.com/onatcipli/flutter_web.git then the following:
-          git remote add origin https://${{secrets.commit_secret}}@github.com/alfacool/movielist.git
-          git checkout -b gh-pages
-          git add --all
-          git commit -m "update"
-          git push origin gh-pages -f
-      - name: Archive Production Artifact
-        uses: actions/upload-artifact@master
-        with:
-          name: web-build
-          path: .dist/pwa
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.commit_secret }}
+          BASE_BRANCH: master
+          BRANCH: gh-pages
+          FOLDER: dist/pwa
