@@ -30,7 +30,7 @@ export default {
   },
   methods: {
     backbutton() {
-      this.$router.push({ path: '/movie' })
+      this.$router.push({ path: '/' })
     }
   }
 }
