@@ -29,8 +29,6 @@ jobs:
           cmd: build # will run `yarn build` command
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@4.1.1
-        env:
-          GITHUB_TOKEN: ${{ secrets.commit_secret }}
-          BASE_BRANCH: master
-          BRANCH: gh-pages
-          FOLDER: dist/pwa
+        with:
+          branch: gh-pages # The branch the action should deploy to.
+          folder: dist/pwa # The folder the action should deploy.
