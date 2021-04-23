@@ -28,7 +28,7 @@ jobs:
         with:
           cmd: build # will run `yarn build` command
       - name: Deploy
-        uses: JamesIves/github-pages-deploy-action@master
+        uses: JamesIves/github-pages-deploy-action@4.1.1
         env:
           GITHUB_TOKEN: ${{ secrets.commit_secret }}
           BASE_BRANCH: master
