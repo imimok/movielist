@@ -24,6 +24,8 @@ jobs:
       - uses: borales/actions-yarn@v2.0.0
         with:
           cmd: install # will run `yarn install` command
+      - uses: joshstrange/setup-quasar@v1
+      - run: quasar info
       - run: quasar build -m pwa
       - run: |
           cd dist/pwa
