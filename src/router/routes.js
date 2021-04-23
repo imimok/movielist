@@ -8,6 +8,13 @@ const routes = [
       { path: '/movie', component: () => import('pages/movie/main.vue') }
     ]
   },
+  {
+    path: '/',
+    component: () => import('layouts/searchlayout.vue'),
+    children: [
+      { path: '/search', component: () => import('pages/movie/search.vue') }
+    ]
+  },
 
   // Always leave this as last one,
   // but you can also remove it

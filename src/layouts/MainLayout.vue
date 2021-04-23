@@ -12,10 +12,10 @@
         />
 
         <q-toolbar-title>
-          Quasar App
+          Movie List
         </q-toolbar-title>
 
-        <div>Quasar v{{ $q.version }}</div>
+        <q-icon name="search" style="font-size: 4rem;" @click="searchbutton" />
       </q-toolbar>
     </q-header>
 
@@ -26,10 +26,7 @@
       content-class="bg-grey-1"
     >
       <q-list>
-        <q-item-label
-          header
-          class="text-grey-8"
-        >
+        <q-item-label header class="text-grey-8">
           Essential Links
         </q-item-label>
         <EssentialLink
@@ -92,15 +89,20 @@ const linksData = [
     icon: 'favorite',
     link: 'https://awesome.quasar.dev'
   }
-];
+]
 
 export default {
   name: 'MainLayout',
   components: { EssentialLink },
-  data () {
+  data() {
     return {
       leftDrawerOpen: false,
       essentialLinks: linksData
+    }
+  },
+  methods: {
+    searchbutton() {
+      this.$router.push({ path: '/search' })
     }
   }
 }
