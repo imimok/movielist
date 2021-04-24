@@ -2,7 +2,7 @@
   <q-layout view="lHh Lpr lFf">
     <q-header elevated>
       <q-toolbar>
-        <q-icon name="search" style="font-size: 4rem;" />
+        <q-icon name="search" style="font-size: 2rem;" />
 
         <q-toolbar-title>
           Movie Search
@@ -10,7 +10,7 @@
 
         <q-icon
           name="subdirectory_arrow_left"
-          style="font-size: 4rem;"
+          style="font-size: 2rem;"
           @click="backbutton"
         />
       </q-toolbar>

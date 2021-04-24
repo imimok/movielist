@@ -12,10 +12,10 @@
         /> -->
 
         <q-toolbar-title>
-          Movie List
+          Top Movie
         </q-toolbar-title>
 
-        <q-icon name="search" style="font-size: 4rem;" @click="searchbutton" />
+        <q-icon name="search" style="font-size: 2rem;" @click="searchbutton" />
       </q-toolbar>
     </q-header>
 

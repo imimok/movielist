@@ -119,8 +119,8 @@ module.exports = function (/* ctx */) {
 
     // https://v1.quasar.dev/quasar-cli/developing-pwa/configuring-pwa
     pwa: {
-      workboxPluginMode: 'GenerateSW', // 'GenerateSW' or 'InjectManifest'
-      workboxOptions: {}, // only for GenerateSW
+      workboxPluginMode: 'InjectManifest', // 'GenerateSW' or 'InjectManifest'
+      // workboxOptions: {}, // only for GenerateSW
       manifest: {
         name: `Quasar App`,
         short_name: `Quasar App`,

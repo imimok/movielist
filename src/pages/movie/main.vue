@@ -1,24 +1,30 @@
 <template>
   <q-page padding>
-    <!-- <q-infinite-scroll @load="onLoad" :offset="250"> -->
-    <div class="q-pa-md row items-start q-gutter-md">
-      <q-card
-        @click="showpopup(MovieItem)"
-        class="my-card"
-        v-for="(MovieItem, index) in dataMovie.results"
-        :key="index"
-      >
-        <img
-          :src="'https://image.tmdb.org/t/p/original' + MovieItem.poster_path"
-        />
+    <q-infinite-scroll @load="onLoad" :offset="500">
+      <div class="q-pa-md row items-start q-gutter-md">
+        <q-card
+          @click="showpopup(MovieItem)"
+          class="my-card"
+          v-for="(MovieItem, index) in dataMovie"
+          :key="index"
+        >
+          <img
+            :src="'https://image.tmdb.org/t/p/original' + MovieItem.poster_path"
+          />
 
-        <q-card-section class="section">
-          <div class="text-h6">{{ MovieItem.title }}</div>
-          <q-rating v-model="MovieItem.vote_average" size="20px" readonly />
-        </q-card-section>
-      </q-card>
-    </div>
-    <!-- </q-infinite-scroll> -->
+          <q-card-section class="section">
+            <div class="text-h6">{{ MovieItem.title }}</div>
+            <q-rating v-model="MovieItem.vote_average" size="20px" readonly />
+          </q-card-section>
+        </q-card>
+      </div>
+
+      <template v-slot:loading>
+        <div class="row justify-center q-my-md">
+          <q-spinner-dots color="primary" size="40px" />
+        </div>
+      </template>
+    </q-infinite-scroll>
 
     <q-dialog v-model="popup" full-width>
       <q-card class="my-card" flat bordered>
@@ -52,7 +58,6 @@ export default {
   name: 'MainMovieList',
   data() {
     return {
-      movieresult: [],
       page: 1,
       popup: false,
       popupdata: []
@@ -69,24 +74,23 @@ export default {
     showpopup(data) {
       this.popup = true
       this.popupdata = data
-    }
+    },
 
-    // async onLoad(index, done) {
-    //   this.movieresult = this.dataMovie.results
-    //   console.log('movie', this.dataMovie.results)
-    //   console.log(this.movieresult)
-    //   setTimeout(() => {
-    //     if (this.dataMovie.results) {
-    //       // this.dataMovie.results.push()
-    //       done()
-    //     }
-    //   }, 2000)
-    // }
+    onLoad(index, done) {
+      setTimeout(() => {
+        if (this.dataMovie) {
+          this.page += 1
+          this.getmovielist(this.page)
+          // console.log('hasil push', this.dataMovie)
+          done()
+        }
+      }, 2000)
+    }
   }
 }
 </script>
 <style lang="sass" scoped>
 .my-card
   width: 100%
-  max-width: 250px
+  max-width: 200px
 </style>
