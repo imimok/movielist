@@ -24,6 +24,13 @@
           <q-spinner-dots color="primary" size="40px" />
         </div>
       </template>
+      <q-page-scroller
+        position="bottom-right"
+        :scroll-offset="150"
+        :offset="[18, 18]"
+      >
+        <q-btn fab icon="keyboard_arrow_up" color="accent" />
+      </q-page-scroller>
     </q-infinite-scroll>
 
     <q-dialog v-model="popup" full-width>

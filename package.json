@@ -2,7 +2,7 @@
   "name": "movielist",
   "version": "0.0.1",
   "description": "A Quasar Framework app",
-  "productName": "Quasar App",
+  "productName": "Movie App",
   "author": "M Alfa Mody Aulya <m.alfa.mody@batmandiri.com>",
   "private": true,
   "scripts": {
