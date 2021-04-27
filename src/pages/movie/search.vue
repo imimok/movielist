@@ -27,7 +27,7 @@
       </div> -->
     </q-form>
 
-    <q-infinite-scroll @load="onLoad" :offset="500" v-if="searched">
+    <q-infinite-scroll @load="onLoad" :offset="350" v-if="searched">
       <div class="q-pa-md row items-start q-gutter-md">
         <q-card
           @click="showpopup(MovieItem)"
